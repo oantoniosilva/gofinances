@@ -1,28 +1,30 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 export const Container = styled.View`
   flex: 1;
   /* background-color: ${(props) => props.theme.colors.primary}; */
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.shape};
 `;
 
 export const Header = styled.View`
   width: 100%;
   height: ${RFPercentage(42)}px;
+
   background-color: ${({ theme }) => theme.colors.primary};
 
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
 `;
 
 export const UserWrapper = styled.View`
   width: 100%;
 
-  /* alto/baixo - direito/esquerdo */
   padding: 0 24px;
+  margin-top: ${getStatusBarHeight() + RFValue(28)}px;
 
   flex-direction: row;
   justify-content: space-between;
@@ -58,8 +60,18 @@ export const UserName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
 `;
 
-//FIXME: verificar erro de tipagem do Feather.
 export const Icon = styled(Feather)`
-  font-size: ${RFValue(20)}px;
   color: ${({ theme }) => theme.colors.secondary};
+  font-size: ${RFValue(24)}px;
+`;
+
+export const HighlightCards = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+  contentContainerStyle: { paddingHorizontal: 24 }
+})`
+  width: 100%;
+
+  position: absolute;
+  margin-top: ${RFPercentage(30)}px;
 `;

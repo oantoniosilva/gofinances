@@ -15,12 +15,12 @@ export function HighlightCard() {
     <Container>
       <Header>
         <Title>Entrada</Title>
-        <Icon name="arrow-up-icon" />
+        <Icon name="arrow-up-circle" />
       </Header>
 
       <Footer>
         <Amount>R$ 17.400,00</Amount>
-        <LastTransaction>Útima entrada dia 11 de março</LastTransaction>
+        <LastTransaction>Última entrada dia 11 de março</LastTransaction>
       </Footer>
     </Container>
   )
